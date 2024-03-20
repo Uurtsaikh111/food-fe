@@ -3,11 +3,10 @@ import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
+
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -36,7 +35,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
-  width: "100%",
+  width: "260px",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
@@ -53,35 +52,72 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Header = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 , width:'100%', maxWidth:'1258px', height:'57px', margin:'auto', px:'24px', py:'8px',}}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
+          <Box sx={{width:'100%',display: 'flex', justifyContent:"space-between", alignItems: 'center', backgroundColor:'white'}}>
+          <Box sx={{width:'553px',height:'41px', display: 'flex', justifyContent:"space-between", alignItems: 'center'}}>
+            <Box><img src="logo.svg"/></Box>
+          <Box sx={{width:'418px',display: 'flex', gap:'8px',color:'black' }}>
+            <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ width:'74px',px:'16px', py:'8px',fontSize:'16px' ,flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            <MenuIcon />
-          </IconButton>
+            НҮҮР
+          </Typography>
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            sx={{  width:'144px',px:'16px', py:'8px',fontSize:'16px',flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            MUI
+            ХООЛНЫ ЦЭС
           </Typography>
-          <Search>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{width:'174px',px:'16px', py:'8px', fontSize:'16px', flexGrow: 1, display: { xs: "none", sm: "block" } }}
+          >
+           ХҮРГЭЛТИЙН БҮС
+          </Typography>
+           </Box>
+          </Box>
+          <Box sx={{width:'522px',gap:'8px',display: 'flex', alignItems: 'center', color:'black'}}>
+            <Search >
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Хайх"
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
+          <Box sx={{width:'102px',display: 'flex',gap:'8px' ,alignItems: 'center',px:'16px', py:'8px'}}>
+             <Box><img src="basket.svg"/></Box>
+             <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ width:'38px',fontSize:'16px' ,fontWeight:'700px',flexGrow: 1, display: { xs: "none", sm: "block" } }}
+          >
+            Сагс
+          </Typography>
+          </Box>
+          <Box sx={{width:'144px',display: 'flex',gap:'8px' ,alignItems: 'center',px:'16px', py:'8px'}}>
+             <Box sx={{width:'32px', height:'32px'}}><img src="profile.svg"/></Box>
+             <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ width:'80px',fontSize:'16px' ,fontWeight:'700px',flexGrow: 1, display: { xs: "none", sm: "block" } }}
+          >
+            Нэвтрэх
+          </Typography>
+          </Box>
+          </Box></Box>
         </Toolbar>
       </AppBar>
     </Box>

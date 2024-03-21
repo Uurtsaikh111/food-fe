@@ -54,70 +54,37 @@ const Header = () => {
         margin: "auto",
         px: "24px",
         py: "8px",
-        background: "red",
-        color:"black"
       }}
     >
-      <AppBar position="static" sx={{ boxShadow: "none" }}>
+      <AppBar position="static" sx={{ boxShadow: "none" , backgroundColor:"white"}}>
         <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
           }}
         >
-          <Box sx={{ display: "flex" }}>
+          <Box sx={{ display: "flex" , gap: "24px" }}>
             <Box>
               <img src="logo.svg" />
             </Box>
             <Box
               sx={{
                 display: "flex",
-                gap: "8px",
-               
-              }}
+                gap: "24px",
+                fontSize: "16px",
+                py: "8px",
+                color: "black"
+                }}
             >
               <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{
-                  width: "74px",
-                  px: "16px",
-                  py: "8px",
-                  fontSize: "16px",
-                  flexGrow: 1,
-                  display: { xs: "none", sm: "block" },
-                }}
               >
                 НҮҮР
               </Typography>
               <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{
-                  width: "144px",
-                  px: "16px",
-                  py: "8px",
-                  fontSize: "16px",
-                  flexGrow: 1,
-                  display: { xs: "none", sm: "block" },
-                }}
               >
                 ХООЛНЫ ЦЭС
               </Typography>
               <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{
-                  width: "174px",
-                  px: "16px",
-                  py: "8px",
-                  fontSize: "16px",
-                  flexGrow: 1,
-                  display: { xs: "none", sm: "block" },
-                }}
               >
                 ХҮРГЭЛТИЙН БҮС
               </Typography>
@@ -125,13 +92,12 @@ const Header = () => {
           </Box>
           <Box
             sx={{
-              width: "522px",
               gap: "8px",
               display: "flex",
-              alignItems: "center",
+              color: "black"
             }}
           >
-            <Search>
+            <Search sx={{ border: 1 }}>
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
@@ -142,63 +108,32 @@ const Header = () => {
             </Search>
             <Box
               sx={{
-                width: "102px",
                 display: "flex",
                 gap: "8px",
-                alignItems: "center",
                 px: "16px",
-                py: "8px",
-              }}
+                py: "8px"
+                }}
             >
               <Box>
                 <img src="basket.svg" />
               </Box>
               <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{
-                  width: "38px",
-                  fontSize: "16px",
-                  fontWeight: "700px",
-                  flexGrow: 1,
-                  display: { xs: "none", sm: "block" },
-                }}
-              >
+               >
                 Сагс
               </Typography>
             </Box>
             <Box
               sx={{
-                width: "144px",
                 display: "flex",
                 gap: "8px",
-                alignItems: "center",
-                px: "16px",
-                py: "8px",
+                py: "8px"
               }}
             >
               <Box
-                sx={{
-                  width: "32px",
-                  height: "32px",
-                  display: "flex",
-                  alignItems: "center",
-                }}
               >
                 <img src="profile.svg" />
               </Box>
               <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{
-                  width: "80px",
-                  fontSize: "16px",
-                  fontWeight: "700px",
-                  flexGrow: 1,
-                  display: { xs: "none", sm: "block" },
-                }}
               >
                 Нэвтрэх
               </Typography>

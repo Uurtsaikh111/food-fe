@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { Stack } from "@mui/material";
+import { Basket, Logo, Profile } from "./Images";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -47,100 +48,90 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 const Header = () => {
   return (
-    <Stack
-      sx={{
-        maxWidth: "1258px",
-        height: "57px",
-        margin: "auto",
-        px: "24px",
-        py: "8px",
-      }}
-    >
-      <AppBar position="static" sx={{ boxShadow: "none" , backgroundColor:"white"}}>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-          }}
+    <Stack alignItems={"center"} >
+      <Stack
+       width={"1258px"} 
+       height={"57px"} 
+      
+        sx={{
+         
+          px: "24px",
+          py: "8px",
+        }}
+      >
+        <AppBar
+          position="static"
+          sx={{ boxShadow: "none", backgroundColor: "white" }}
         >
-          <Box sx={{ display: "flex" , gap: "24px" }}>
-            <Box>
-              <img src="logo.svg" />
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                gap: "24px",
-                fontSize: "16px",
-                py: "8px",
-                color: "black"
-                }}
-            >
-              <Typography
-              >
-                НҮҮР
-              </Typography>
-              <Typography
-              >
-                ХООЛНЫ ЦЭС
-              </Typography>
-              <Typography
-              >
-                ХҮРГЭЛТИЙН БҮС
-              </Typography>
-            </Box>
-          </Box>
           <Box
             sx={{
-              gap: "8px",
               display: "flex",
-              color: "black"
+              justifyContent: "space-between",
             }}
           >
-            <Search sx={{ border: 1 }}>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Хайх"
-                inputProps={{ "aria-label": "search" }}
-              />
-            </Search>
-            <Box
-              sx={{
-                display: "flex",
-                gap: "8px",
-                px: "16px",
-                py: "8px"
-                }}
-            >
+            <Box sx={{ display: "flex", gap: "24px" }}>
               <Box>
-                <img src="basket.svg" />
+                <Logo color={"black"} />
               </Box>
-              <Typography
-               >
-                Сагс
-              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: "24px",
+                  fontSize: "16px",
+                  py: "8px",
+                  color: "black",
+                }}
+              >
+                <Typography>НҮҮР</Typography>
+                <Typography>ХООЛНЫ ЦЭС</Typography>
+                <Typography>ХҮРГЭЛТИЙН БҮС</Typography>
+              </Box>
             </Box>
             <Box
               sx={{
-                display: "flex",
                 gap: "8px",
-                py: "8px"
+                display: "flex",
+                color: "black",
               }}
             >
+              <Search sx={{ border: 1 }}>
+                <SearchIconWrapper>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                  placeholder="Хайх"
+                  inputProps={{ "aria-label": "search" }}
+                />
+              </Search>
               <Box
+                sx={{
+                  display: "flex",
+                  gap: "8px",
+                  px: "16px",
+                  py: "8px",
+                }}
               >
-                <img src="profile.svg" />
+                <Box>
+                  <Basket />
+                </Box>
+                <Typography>Сагс</Typography>
               </Box>
-              <Typography
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: "8px",
+                  py: "8px",
+                }}
               >
-                Нэвтрэх
-              </Typography>
+                <Box>
+                  <Profile />
+                </Box>
+                <Typography>Нэвтрэх</Typography>
+              </Box>
             </Box>
           </Box>
-        </Box>
-      </AppBar>
+        </AppBar>
+      </Stack>
     </Stack>
   );
 };

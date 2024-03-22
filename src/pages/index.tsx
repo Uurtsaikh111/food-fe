@@ -1,9 +1,8 @@
-
-
+import { Footer } from "@/components/Footer";
 import Header from "@/components/Header";
-import { Box } from "@mui/material";
+import { Stack } from "@mui/material";
 import Head from "next/head";
-const Home=()=> {
+const Home = () => {
   return (
     <>
       <Head>
@@ -13,11 +12,12 @@ const Home=()=> {
         <link rel="icon" href="/logo.svg" />
       </Head>
       <main>
-        <Box>
-          <Header/>
-        </Box>
+        <Stack>
+          <Header />
+          <Footer/>
+        </Stack>
       </main>
     </>
   );
-}
-export default Home
+};
+export default Home;

@@ -1,5 +1,3 @@
-import { Footer } from "@/components/layout/Footer";
-import Header from "@/components/layout/Header";
 import { Stack } from "@mui/material";
 import Head from "next/head";
 const Home = () => {
@@ -13,7 +11,7 @@ const Home = () => {
       </Head>
       <main>
         <Stack>
-         hello
+      
         </Stack>
       </main>
     </>

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Checkbox from '@mui/material/Checkbox';
 
-import { Box, FormControl, IconButton, Input, InputAdornment, InputLabel, OutlinedInput, Stack, TextField, Typography } from "@mui/material";
+import { FormControl, IconButton, OutlinedInput, Stack, TextField, Typography } from "@mui/material";
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 const Home = () => {
@@ -21,26 +21,26 @@ const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => 
             <Stack gap={2}>
               <Stack gap={"4px"}>
                 <Typography>Нэр</Typography>
-               <TextField  id="outlined-basic" label="Нэрээ оруулна уу" variant="outlined" sx={{backgroundColor:'#ECEDF0'}}/>
+               <TextField  id="outlined-basic" placeholder="Нэрээ оруулна уу" variant="outlined" sx={{backgroundColor:'#ECEDF0'}}/>
                 
               </Stack>
               <Stack gap={"4px"}>
                 <Typography>И-мэйл</Typography>
                 
-                <TextField  id="outlined-basic" label="И-мэйл хаягаа оруулна уу" variant="outlined" sx={{backgroundColor:'#ECEDF0'}} />
+                <TextField  id="outlined-basic" placeholder="И-мэйл хаягаа оруулна уу" variant="outlined" sx={{backgroundColor:'#ECEDF0'}} />
                 
               </Stack>
               <Stack gap={"4px"}>
                 <Typography>Хаяг</Typography>
                 
-                <TextField  id="outlined-basic" label="Та хаягаа оруулна уу" variant="outlined" sx={{backgroundColor:'#ECEDF0'}}/>
+                <TextField  id="outlined-basic" placeholder="Та хаягаа оруулна уу" variant="outlined" sx={{backgroundColor:'#ECEDF0'}}/>
                 
               </Stack>
               <Stack gap={"4px"}>
                 <Typography>Нууц үг</Typography>
                 
                 <FormControl sx={{ m: 0, width: '100%', backgroundColor:'#ECEDF0' }} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          
           <OutlinedInput
             id="outlined-adornment-password"
             type={showPassword ? 'text' : 'password'}
@@ -56,7 +56,7 @@ const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => 
                 </IconButton>
               
             }
-            label="Password"
+            placeholder="Password"
           />
         </FormControl>
                 
@@ -65,7 +65,7 @@ const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => 
                 <Typography>Нууц үг давтах</Typography>
                
                 <FormControl sx={{ m: 0, width: '100%', backgroundColor:'#ECEDF0' }} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          
           <OutlinedInput
             id="outlined-adornment-password"
             type={showPassword ? 'text' : 'password'}
@@ -81,7 +81,7 @@ const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => 
                 </IconButton>
               
             }
-            label="Password"
+            placeholder="Password"
           />
         </FormControl>
                 

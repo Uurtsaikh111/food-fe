@@ -1,12 +1,13 @@
 import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
+import { styled, alpha} from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
-import { Stack } from "@mui/material";
+import { Container, Stack } from "@mui/material";
 import { Basket, Logo, Profile } from "../Images";
+import Link from "next/link";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -47,15 +48,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 const Header = () => {
+
   return (
-    <Stack alignItems={"center"} >
+    <Container >
       <Stack
-       width={"1258px"} 
-       height={"57px"} 
-      
+        maxWidth={"lg"}
+        height={"57px"}
         sx={{
-         
-          px: "24px",
+          
           py: "8px",
         }}
       >
@@ -126,13 +126,19 @@ const Header = () => {
                 <Box>
                   <Profile />
                 </Box>
-                <Typography>Нэвтрэх</Typography>
+                <Link
+                  href={"login"}
+                  style={{ textDecoration: "none" }}
+                  
+                >
+                  <Typography color={"#000000"}>Нэвтрэх</Typography>
+                </Link>
               </Box>
             </Box>
           </Box>
         </AppBar>
       </Stack>
-    </Stack>
+    </Container>
   );
 };
 export default Header;

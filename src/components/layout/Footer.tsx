@@ -1,24 +1,22 @@
-import { Link, Stack, Typography} from "@mui/material";
-import { Facebook, Instagram, Logo,  Tattoo,  Twitter } from "../Images";
+import { Container, Link, Stack, Typography, useTheme} from "@mui/material";
+import { Facebook, Instagram, Logo, Twitter } from "../Images";
 import Divider from '@mui/material/Divider';
 
 
 export const Footer = () => {
+  const theme = useTheme();
   return (
-    <Stack maxWidth={"1440px"} margin={"auto"}>
-      {/* <Stack bgcolor={"green"}>
-        <Tattoo/>
-      </Stack> */}
+    <Stack bgcolor={theme.palette.primary.main} sx={{backgroundImage:"url(/bgImage.svg)"}}>
+      <Container>
+    <Stack maxWidth={"lg"} margin={"auto"}>
+   
       <Stack
-        width={"1440px"}
         height={"545px"}
         justifyContent={"center"}
         alignItems={"center"}
-        
-        sx={{ bgcolor: "#18BA51" }}
       >
         <Stack
-          width={"80%"}
+          width={"100%"}
           justifyContent={"center"}
           alignItems={"center"}
           gap={5}
@@ -60,5 +58,6 @@ export const Footer = () => {
       </Stack>
       
     </Stack>
+    </Container></Stack>
   );
 };

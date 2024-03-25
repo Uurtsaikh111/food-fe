@@ -2,12 +2,13 @@ import { Visibility, VisibilityOff } from "@mui/icons-material"
 import { FormControl, IconButton, InputLabel, OutlinedInput, Stack, TextField, Typography } from "@mui/material"
 import React from "react";
 
-export const StepTwo=({setProgress}:{setProgress:(value:number) => void })=>{
+export const StepTwo=({setProgress}:{setProgress:(_value:number) => void })=>{
     const [showPassword, setShowPassword] = React.useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
     };
+    setProgress(0)
     return(
         <Stack>
            <Stack>

@@ -1,11 +1,11 @@
-import { Login} from "@/components/login";
+import {LoginComponent} from "@/components/login";
 import { Stack } from "@mui/material";
 const Home = () => {
   return (
     <>
       <main>
         <Stack>
-           <Login/>
+           <LoginComponent/>
         </Stack>
       </main>
     </>

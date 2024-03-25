@@ -82,7 +82,9 @@ const Header = () => {
                   color: "black",
                 }}
               >
-                <Typography>НҮҮР</Typography>
+                <Link  href={"/"}
+                  style={{ textDecoration: "none" }}
+                ><Typography color={"#000000"}>НҮҮР</Typography></Link>
                 <Typography>ХООЛНЫ ЦЭС</Typography>
                 <Typography>ХҮРГЭЛТИЙН БҮС</Typography>
               </Box>

@@ -20,10 +20,10 @@ export const StepThree=({setProgress,getId}:{setProgress:(_value:number) => void
               >Нууц үг</Typography>
                 
                 <FormControl sx={{ m: 0, width: '100%', backgroundColor:'#ECEDF0' }} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password"></InputLabel>
+          
           <OutlinedInput
             id="outlined-adornment-password"
-            type={showPassword ? 'text' : 'password'}
+            type={showPassword ? 'password' : 'text'}
             endAdornment={
               
                 <IconButton
@@ -36,14 +36,14 @@ export const StepThree=({setProgress,getId}:{setProgress:(_value:number) => void
                 </IconButton>
               
             }
-            label="Password"
+            placeholder="Password"
           />
         </FormControl></Stack>
         <Stack><Typography
               >Нууц үг давтах </Typography>
                 
                 <FormControl sx={{ m: 0, width: '100%', backgroundColor:'#ECEDF0' }} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password"></InputLabel>
+          
           <OutlinedInput
             id="outlined-adornment-password"
             type={showPassword ? 'text' : 'password'}
@@ -59,7 +59,7 @@ export const StepThree=({setProgress,getId}:{setProgress:(_value:number) => void
                 </IconButton>
               
             }
-            label="Password"
+            placeholder="Password"
           />
         </FormControl></Stack>
               </Stack>

@@ -34,7 +34,7 @@ export const Footer = () => {
             </Stack>
           </Stack>
           <Stack width={"100%"} direction={"row"} justifyContent={"space-between"} sx={{color:"white"}}>
-            <Link href="#" color={"#FFF"}>Нүүр</Link>
+            <Link href="/" color={"#FFF"}>Нүүр</Link>
             <Link color={"#FFF"}>Холбоо барих</Link>
             <Link color={"#FFF"}>Хоолны цэс</Link>
             <Link color={"#FFF"}>Үйлчилгээний нөхцөл</Link>

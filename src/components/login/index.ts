@@ -1,2 +1,1 @@
-export * from "./LoginComponent"
-export * from "./LoginMain"
+export * from "./loginComponent"

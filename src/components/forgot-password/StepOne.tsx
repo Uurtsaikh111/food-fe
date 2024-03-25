@@ -7,7 +7,7 @@ export const StepOne = ({
   setProgress: (_value: number) => void;
   setGetId: (_value: string) => void;
 }) => {
-  setProgress(2);
+  setProgress(0)
   setGetId("")
   return (
     <Stack>
@@ -27,7 +27,7 @@ export const StepOne = ({
           <Typography>Имэйл</Typography>
           <TextField
             id="outlined-basic"
-            label="И-мэйл хаягаа оруулна уу"
+            placeholder="И-мэйл хаягаа оруулна уу"
             variant="outlined"
             sx={{ backgroundColor: "#ECEDF0" }}
           />

@@ -1,5 +1,5 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material"
-import { FormControl, IconButton, InputLabel, OutlinedInput, Stack, TextField, Typography } from "@mui/material"
+import { FormControl, IconButton,  OutlinedInput, Stack, TextField, Typography } from "@mui/material"
 import React from "react";
 
 export const StepTwo=({setProgress}:{setProgress:(_value:number) => void })=>{
@@ -8,7 +8,7 @@ export const StepTwo=({setProgress}:{setProgress:(_value:number) => void })=>{
   const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
       event.preventDefault();
     };
-    setProgress(0)
+    
     return(
         <Stack>
            <Stack>
@@ -19,10 +19,10 @@ export const StepTwo=({setProgress}:{setProgress:(_value:number) => void })=>{
               >Нууц үг сэргээх код</Typography>
                 
                 <FormControl sx={{ m: 0, width: '100%', backgroundColor:'#ECEDF0' }} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password"></InputLabel>
+          
           <OutlinedInput
             id="outlined-adornment-password"
-            type={showPassword ? 'text' : 'password'}
+            type={showPassword ? 'password' : 'text'}
             endAdornment={
               
                 <IconButton
@@ -35,7 +35,7 @@ export const StepTwo=({setProgress}:{setProgress:(_value:number) => void })=>{
                 </IconButton>
               
             }
-            label="Password"
+            placeholder="Password"
           />
         </FormControl></Stack>
               </Stack>

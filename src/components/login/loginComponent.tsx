@@ -53,10 +53,10 @@ export const LoginComponent = () => {
                 
                 <OutlinedInput
                   id="outlined-adornment-password"
-                  type={showPassword ? "text" : "password"}
+                  type={showPassword ? "password" : "text"}
                   endAdornment={
                     <IconButton
-                      aria-label="toggle password visibility"
+                      
                       onClick={handleClickShowPassword}
                       onMouseDown={handleMouseDownPassword}
                       edge="end"
@@ -69,7 +69,8 @@ export const LoginComponent = () => {
               </FormControl>
             </Stack>
           </Stack>
-          <Typography textAlign={"end"}>Нууц үг сэргээх</Typography>
+          <Link href={"forgot-pass"}
+                  style={{ textDecoration: "none" }}><Typography textAlign={"end"} color={"#000000"}>Нууц үг сэргээх</Typography></Link>
         </Stack>
         <Stack gap={4}>
           <Button

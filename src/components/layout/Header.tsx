@@ -86,7 +86,9 @@ const Header = () => {
                   style={{ textDecoration: "none" }}
                 ><Typography color={"#000000"}>НҮҮР</Typography></Link>
                 <Typography>ХООЛНЫ ЦЭС</Typography>
-                <Typography>ХҮРГЭЛТИЙН БҮС</Typography>
+                <Link  href={"/delivery-zone"}
+                  style={{ textDecoration: "none" }}
+                ><Typography color={"#000000"}>ХҮРГЭЛТИЙН БҮС</Typography></Link>
               </Box>
             </Box>
             <Box

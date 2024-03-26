@@ -3,7 +3,6 @@ import {
   Button,
   FormControl,
   IconButton,
-  
   OutlinedInput,
   Stack,
   TextField,
@@ -50,13 +49,11 @@ export const LoginComponent = () => {
                 sx={{ m: 0, width: "100%", backgroundColor: "#ECEDF0" }}
                 variant="outlined"
               >
-                
                 <OutlinedInput
                   id="outlined-adornment-password"
                   type={showPassword ? "password" : "text"}
                   endAdornment={
                     <IconButton
-                      
                       onClick={handleClickShowPassword}
                       onMouseDown={handleMouseDownPassword}
                       edge="end"
@@ -69,8 +66,11 @@ export const LoginComponent = () => {
               </FormControl>
             </Stack>
           </Stack>
-          <Link href={"forgot-pass"}
-                  style={{ textDecoration: "none" }}><Typography textAlign={"end"} color={"#000000"}>Нууц үг сэргээх</Typography></Link>
+          <Link href={"forgot-pass"} style={{ textDecoration: "none" }}>
+            <Typography textAlign={"end"} color={"#000000"}>
+              Нууц үг сэргээх
+            </Typography>
+          </Link>
         </Stack>
         <Stack gap={4}>
           <Button

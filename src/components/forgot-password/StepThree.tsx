@@ -1,5 +1,5 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material"
-import { FormControl, IconButton, InputLabel, OutlinedInput, Stack, TextField, Typography } from "@mui/material"
+import { FormControl, IconButton,OutlinedInput, Stack, TextField, Typography } from "@mui/material"
 import React from "react";
 
 export const StepThree=({setProgress,getId}:{setProgress:(_value:number) => void ,getId:string})=>{

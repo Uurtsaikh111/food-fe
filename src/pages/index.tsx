@@ -1,10 +1,13 @@
 import { Container, Divider, Stack, Typography, useTheme } from "@mui/material";
-import { Home1 } from "@/utils/HomeData";
+import { Home1} from "@/utils/HomeData";
 import Head from "next/head";
 import Image from "next/image";
+import CardsHome from "@/components/CardsHome";
+
 
 const Home = () => {
   const theme = useTheme();
+
   return (
     <>
       <Head>
@@ -84,6 +87,7 @@ const Home = () => {
               );
             })}
           </Stack>
+          <CardsHome/>
         </Container>
       </main>
     </>

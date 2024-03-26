@@ -85,7 +85,9 @@ const Header = () => {
                 <Link  href={"/"}
                   style={{ textDecoration: "none" }}
                 ><Typography color={"#000000"}>НҮҮР</Typography></Link>
-                <Typography>ХООЛНЫ ЦЭС</Typography>
+                <Link  href={"/menu"}
+                  style={{ textDecoration: "none" }}
+                ><Typography color={"#000000"}>ХООЛНЫ ЦЭС</Typography></Link>
                 <Link  href={"/delivery-zone"}
                   style={{ textDecoration: "none" }}
                 ><Typography color={"#000000"}>ХҮРГЭЛТИЙН БҮС</Typography></Link>

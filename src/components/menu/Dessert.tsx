@@ -1,20 +1,13 @@
-import { Stack, Typography } from "@mui/material";
+import { Home2 } from "@/utils/HomeData";
+import { Stack, Typography } from "@mui/material"
 import Image from "next/image";
 
-type dataType = {
-  category: string,
-  title: string,
-  image: string,
-  price: number,
-  discount: number,
-}
-const Cards = ({data}:{data:dataType[]}) => {
-const datas = data.slice(0,4)
- return (
+export const Dessert=()=>{
+    const filterDessert = Home2.filter((item) => item.category=="desert");
+    return(
     
-    <Stack>
-     <Stack direction={"row"} justifyContent={"space-between"}>
-            {datas.map((a, id) => {
+           <Stack direction={"row"} justifyContent={"space-between"} marginBottom={"86px"} flexWrap={"wrap"}>
+            {filterDessert.map((a, id) => {
               return (
 
                 <Stack key={id} gap={"14px"}>
@@ -41,9 +34,6 @@ const datas = data.slice(0,4)
               );
             })}
           </Stack>
-        </Stack>
-    
-  );
-};
-
-export default Cards;
+     
+    )
+}

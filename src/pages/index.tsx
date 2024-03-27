@@ -1,13 +1,7 @@
-import { Container, Divider, Stack, Typography, useTheme } from "@mui/material";
-import { Home1} from "@/utils/HomeData";
 import Head from "next/head";
-import Image from "next/image";
-import CardsHome from "@/components/CardsHome";
-
-
+import Reclam from "@/components/home/Reclam";
+import Information from "@/components/home/Information";
 const Home = () => {
-  const theme = useTheme();
-
   return (
     <>
       <Head>
@@ -17,78 +11,8 @@ const Home = () => {
         <link rel="icon" href="/logo.svg" />
       </Head>
       <main>
-        <Stack
-          bgcolor={theme.palette.primary.main}
-          sx={{ backgroundImage: "url(/bgImage.svg)" }}
-          marginBottom={"122px"}
-        >
-          <Container maxWidth={"lg"}>
-            <Stack
-              height={"788px"}
-              direction={"row"}
-              alignItems={"center"}
-              position={"relative"}
-              gap={"180px"}
-            >
-              <Stack
-                width={"370px"}
-                gap={"23px"}
-                color={theme.palette.primary.light}
-              >
-                <Typography fontSize={"55px"} fontWeight={"600"} lineHeight={1}>
-                  Pinecone Food delivery
-                </Typography>
-                <Divider
-                  component="div"
-                  sx={{ border: "1px solid white", width: "100%" }}
-                />
-                <Typography fontSize={"22px"} fontWeight={"500"}>
-                  Horem ipsum dolor sit amet, consectetur adipiscing elit.
-                </Typography>
-              </Stack>
-              <Image src="/homefood1.png" width={443} height={438} alt="" />
-
-              <Stack
-                marginLeft={"840px"}
-                marginTop={"120px"}
-                position={"absolute"}
-              >
-                <Image src="/homefood2.png" width={313} height={313} alt="" />
-              </Stack>
-            </Stack>
-          </Container>
-        </Stack>
-        <Container maxWidth={"lg"}>
-          <Stack
-            direction={"row"}
-            height={"155px"}
-            justifyContent={"space-between"}
-            marginBottom={"122px"}
-          >
-            {Home1.map((a, id) => {
-              return (
-                <Stack
-                  width={"265px"}
-                  p={2}
-                  gap={"15px"}
-                  key={id}
-                  border={"solid 1px #D6D8DB"}
-                  borderRadius={2}
-                  boxShadow={"4px 4px 12px rgba(0, 0, 0, 0.10)"}
-                >
-                  <Stack p={"15px"}>{a.icon}</Stack>
-                  <Stack>
-                    <Typography>{a.text1}</Typography>
-                    <Typography fontSize={"14px"} sx={{ color: "grey" }}>
-                      {a.text2}
-                    </Typography>
-                  </Stack>
-                </Stack>
-              );
-            })}
-          </Stack>
-          <CardsHome/>
-        </Container>
+        <Reclam/>
+        <Information/>
       </main>
     </>
   );

@@ -4,27 +4,19 @@ import Link from "next/link";
 import { Category, Home2 } from "@/utils/HomeData";
 import Image from "next/image";
 import Cards from "./Cards";
-
-
-
 const CardsHome = () => {
-  const filterFoods = Home2.filter((item) => item.discount > 0);
+const filterFoods = Home2.filter((item) => item.discount > 0);
+const saleFoods = filterFoods.slice(0,4)
 
-
-  const filters = Category.map((cat) => {
+const filters = Category.map((cat) => {
     return Home2.filter((items) => items.category == cat);
   });
 
-  // const mainFoods = Home2.filter((items) => items.category== "Maindish");
-  // const sidedishFoods = Home2.filter((items) => items.category== "Sidedish");
-  // const desertFoods = Home2.filter((items) => items.category== "desert");
+const Headers= ["Үндсэн хоол", "Салад ба зууш", "Амттан" ]
 
-  // const mainArray = [mainFoods,sidedishFoods,desertFoods]
-  console.log(filters);
-
-  return (
-    <Stack>
-      <Stack gap={10} marginBottom={10}>
+return (
+ 
+      <Stack gap={"60px"} marginBottom={10}>
         <Stack gap={3}>
           <Stack
             direction={"row"}
@@ -48,7 +40,7 @@ const CardsHome = () => {
             </Link>
           </Stack>
           <Stack direction={"row"} justifyContent={"space-between"}>
-            {filterFoods.map((a, id) => {
+            {saleFoods.map((a, id) => {
               return (
                 <Stack key={id} gap={"14px"}>
                   <Stack position={"relative"}>
@@ -64,11 +56,12 @@ const CardsHome = () => {
                       position={"absolute"}
                       marginTop={2}
                       marginLeft={24}
+
                     >
                       {a.discount}%
                     </Typography>
                   </Stack>
-                  <Stack>
+                  <Stack px={1.5}>
                     <Typography fontSize={"18px"} fontWeight={"600"}>
                       {a.title}
                     </Typography>
@@ -96,7 +89,7 @@ const CardsHome = () => {
         <Stack gap={3}>
           {filters.map((b,id)=>{
             return(
-             <Stack key={id}>
+             <Stack key={id} gap={3}>
            <Stack
             direction={"row"}
             justifyContent={"space-between"}
@@ -105,7 +98,7 @@ const CardsHome = () => {
             <Stack direction={"row"} py={2}>
               <Star />
               <Typography fontSize={"22px"} fontWeight={"700"}>
-                 Хямдралтай
+                {Headers}
               </Typography>
             </Stack>
             <Link href={"menu"} style={{ textDecoration: "none" }}>
@@ -122,13 +115,11 @@ const CardsHome = () => {
             </Stack>
             )
           })}
-          
           <Stack>
-          
           </Stack>
         </Stack>
       </Stack>
-    </Stack>
+   
   );
 };
 

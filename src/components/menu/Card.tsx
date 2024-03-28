@@ -1,23 +1,30 @@
-import { Home2 } from "@/utils/HomeData";
+
 import { CardMedia, Stack, Typography } from "@mui/material"
+interface dataType {
+  id:number,
+  category: string,
+  title: string,
+  image: string,
+  price: number,
+  discount: number,
+  ingredients: string[],
+  stock: number,
 
+}
 
-export const Dessert=()=>{
-    const filterDessert = Home2.filter((item) => item.category=="desert");
+export const Card=({data}:{data:dataType})=>{
+
     return(
     
-           <Stack direction={"row"} justifyContent={"space-between"} marginBottom={"86px"} flexWrap={"wrap"}>
-            {filterDessert.map((a, id) => {
-              return (
-
-                <Stack key={id} gap={"14px"}>
-                  <CardMedia component={"img"} src={a.image}
+          
+                  <Stack>
+                  <CardMedia component={"img"} src={data.image}
                    width={282}
                    height={186}
                    alt=""/>
                   <Stack px={1.5}>
                     <Typography fontSize={"18px"} fontWeight={"600"}>
-                      {a.title}
+                      {data.title}
                     </Typography>
                     <Stack direction={"row"} gap={1}>
                       <Typography
@@ -25,15 +32,13 @@ export const Dessert=()=>{
                         fontWeight={"600"}
                         color={"#18BA51"}
                       >
-                        {a.price}₮
+                        {data.price}₮
                       </Typography>
                      
                     </Stack>
                   </Stack>
                 </Stack>
-              );
-            })}
-          </Stack>
+              
      
     )
 }

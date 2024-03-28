@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { Home2 } from '@/utils/HomeData';
+import { CardMedia, Stack } from '@mui/material';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -16,14 +18,15 @@ const style = {
   p: 4,
 };
 
-const BasicModal=()=> {
+
+export const CardModal=()=> {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
-    <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+    <Stack><Stack>
+      <Button onClick={handleOpen}>adwadwd</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -39,7 +42,10 @@ const BasicModal=()=> {
           </Typography>
         </Box>
       </Modal>
-    </div>
+    </Stack>
+    
+    </Stack>
+      
+        
   );
 }
-export default BasicModal

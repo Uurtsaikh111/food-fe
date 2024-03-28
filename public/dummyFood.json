@@ -1,4 +1,4 @@
-{"foods":[
+[
     {
       "id":1,
       "category": "breakfast",
@@ -311,5 +311,5 @@
         "ingredients": ["Dough", "Tomato Sauce", "Cheese", "Toppings of choice"],
         "stock": 30
       }
-  ]}
+  ]
   

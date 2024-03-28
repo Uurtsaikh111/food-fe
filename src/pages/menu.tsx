@@ -1,96 +1,51 @@
-import { Breakfast, Dessert, MainCourse, Sidedish } from "@/components/menu";
-import { Button, Container, Stack } from "@mui/material";
-import { useState } from "react";
+import { Card, CardModal} from "@/components/menu";
+import {  Button, Container, Stack } from "@mui/material";
+import { useEffect, useState } from "react";
 
+interface dataType {
+  id:number,
+  category: string,
+  title: string,
+  image: string,
+  price: number,
+  discount: number,
+  ingredients: string[],
+  stock: number,
+
+}
+ const Categories = [
+  "Maindish","Sidedish","desert","breakfast"
+];
 const Home = () => {
-  const [show, setShow] = useState(0);
+const [dataFoods, setDataFoods] = useState<dataType[]>([]);
+const [menu, setMenu] = useState("Maindish")
 
-  return (
-    <>
-      <main>
-        <Container maxWidth="lg">
-          <Stack gap={"54px"}>
-            <Stack
-              py={4}
-              gap={"28px"}
-              direction={"row"}
-              justifyContent={"space-between"}
-            >
-              <Button
-                sx={{
-                  width: "280px",
-                  alignItems: "center",
-                  border: "1px solid #D6D8DB",
-                  borderRadius: "8px",
-                  px: "16px",
-                  py: "8px",
-                  color: "black",
-                }}
-                onClick={() => {
-                  setShow(0);
-                }}
-              >
-                Breakfast
-              </Button>
-              <Button
-                sx={{
-                  width: "280px",
-                  alignItems: "center",
-                  border: "1px solid #D6D8DB",
-                  borderRadius: "8px",
-                  px: "16px",
-                  py: "8px",
-                  color: "black",
-                }}
-                onClick={() => {
-                  setShow(1);
-                }}
-              >
-                Sidedish
-              </Button>
-              <Button
-                sx={{
-                  width: "280px",
-                  alignItems: "center",
-                  border: "1px solid #D6D8DB",
-                  borderRadius: "8px",
-                  px: "16px",
-                  py: "8px",
-                  color: "black",
-                }}
-                onClick={() => {
-                  setShow(2);
-                }}
-              >
-                Main Course
-              </Button>
-              <Button
-                sx={{
-                  width: "280px",
-                  alignItems: "center",
-                  border: "1px solid #D6D8DB",
-                  borderRadius: "8px",
-                  px: "16px",
-                  py: "8px",
-                  color: "black",
-                }}
-                onClick={() => {
-                  setShow(3);
-                }}
-              >
-                Dessert
-              </Button>
-            </Stack>
-            <Stack>
-              {show == 0 && <Breakfast />}
-              {show == 1 && <Sidedish />}
-              {show == 2 && <MainCourse />}
-              {show == 3 && <Dessert />}
-            </Stack>
-          </Stack>
-        </Container>
-      </main>
-    </>
+  useEffect(()=>{
+  fetch("./dummyFood.json")
+  .then((res) => res.json())
+  .then((data) => setDataFoods(data))
+ 
+},[]);
+
+
+const filterFoods = dataFoods.filter((item) => item.category==menu);
+return (
+    <Container>
+      <Stack direction={"row"} justifyContent={"space-between"} marginTop={4} marginBottom={7}>
+        {Categories.map((category,id)=>(
+          <Button sx={{ width:"280px", px:"16px", py:"8px",borderRadius:"8px", color:"black", border:"1px solid grey"}} onClick={()=>setMenu(category)} key={id}>{category}</Button>
+        ))}
+      </Stack>
+      <CardModal/>
+
+      <Stack direction={"row"} justifyContent={"space-between"} marginBottom={"86px"} flexWrap={"wrap"}>
+
+       {filterFoods.map((data,id) =>(
+      <Card key={id} data={data} />
+    ))}
+      
+    </Stack>
+    </Container>
   );
 };
 export default Home;

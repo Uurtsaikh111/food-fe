@@ -1,4 +1,2 @@
-export * from "./Breakfast"
-export * from "./Sidedish"
-export * from "./MainCourse"
-export * from "./Dessert"
+export * from "./Modal"
+export * from "./Card"

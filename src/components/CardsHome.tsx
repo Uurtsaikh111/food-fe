@@ -1,8 +1,7 @@
-import { Stack, Typography } from "@mui/material";
+import { CardMedia, Stack, Typography } from "@mui/material";
 import { Star } from "./Images/icons/Star";
 import Link from "next/link";
 import { Category, Home2 } from "@/utils/HomeData";
-import Image from "next/image";
 import Cards from "./Cards";
 const CardsHome = () => {
 const filterFoods = Home2.filter((item) => item.discount > 0);
@@ -44,7 +43,7 @@ return (
               return (
                 <Stack key={id} gap={"14px"}>
                   <Stack position={"relative"}>
-                    <Image src={a.image} width={282} height={186} alt="" />
+                    <CardMedia component={"img"} src={a.image} width={282} height={186} alt="" />
                     <Typography
                       px={2}
                       py={0.5}

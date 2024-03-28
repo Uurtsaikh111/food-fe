@@ -1,6 +1,6 @@
 import { Home2 } from "@/utils/HomeData";
-import { Stack, Typography } from "@mui/material"
-import Image from "next/image";
+import { CardMedia, Stack, Typography } from "@mui/material"
+
 
 export const MainCourse=()=>{
     const filterMaindish = Home2.filter((item) => item.category=="Maindish");
@@ -12,7 +12,7 @@ export const MainCourse=()=>{
               return (
 
                 <Stack key={id} gap={"14px"}>
-                  <Image src={a.image}
+                  <CardMedia component={"img"} src={a.image}
                    width={282}
                    height={186}
                    alt=""/>

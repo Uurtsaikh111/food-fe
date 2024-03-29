@@ -1,4 +1,4 @@
-import { Card, CardModal} from "@/components/menu";
+import { Card} from "@/components/menu";
 import {  Button, Container, Stack } from "@mui/material";
 import { useEffect, useState } from "react";
 
@@ -36,7 +36,7 @@ return (
           <Button sx={{ width:"280px", px:"16px", py:"8px",borderRadius:"8px", color:"black", border:"1px solid grey"}} onClick={()=>setMenu(category)} key={id}>{category}</Button>
         ))}
       </Stack>
-      <CardModal/>
+  
 
       <Stack direction={"row"} justifyContent={"space-between"} marginBottom={"86px"} flexWrap={"wrap"}>
 

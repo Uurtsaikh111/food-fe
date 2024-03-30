@@ -9,9 +9,14 @@ import {
   Typography,
 } from "@mui/material";
 import Link from "next/link";
-import React from "react";
+import React, {useState}  from "react";
+
 
 export const LoginComponent = () => {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [emailError, setEmailError] = useState(false)
+  const [passwordError, setPasswordError] = useState(false)
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (
@@ -19,8 +24,30 @@ export const LoginComponent = () => {
   ) => {
     event.preventDefault();
   };
+
+  const handleSubmit = (event:any) => {
+    event.preventDefault()
+
+    setEmailError(false)
+    setPasswordError(false)
+
+    if (email == '') {
+        setEmailError(true)
+    }
+    if (password == '') {
+        setPasswordError(true)
+    }
+
+    if (email && password) {
+        console.log(email, password)
+    }
+}
+
   return (
     <Stack>
+
+        <React.Fragment>
+        <form autoComplete="off" onSubmit={handleSubmit}>
       <Stack
         width={"448px"}
         borderRadius={2}
@@ -36,6 +63,10 @@ export const LoginComponent = () => {
             <Stack gap={0.5}>
               <Typography>Имэйл </Typography>
               <TextField
+       
+              onChange={e => setEmail(e.target.value)}
+              required
+                type="email"
                 id="outlined-basic"
                 placeholder="И-мэйл хаягаа оруулна уу"
                 variant="outlined"
@@ -50,6 +81,9 @@ export const LoginComponent = () => {
                 variant="outlined"
               >
                 <OutlinedInput
+                  label="Password"
+                  onChange={e => setPassword(e.target.value)}
+                  required
                   id="outlined-adornment-password"
                   type={showPassword ? "password" : "text"}
                   endAdornment={
@@ -74,6 +108,8 @@ export const LoginComponent = () => {
         </Stack>
         <Stack gap={4}>
           <Button
+
+          type="submit"
             sx={{
               px: "16px",
               py: "8px",
@@ -100,7 +136,10 @@ export const LoginComponent = () => {
             </Button>
           </Link>
         </Stack>
+       
       </Stack>
+      </form>
+      </React.Fragment>
     </Stack>
   );
 };

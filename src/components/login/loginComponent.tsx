@@ -39,8 +39,13 @@ export const LoginComponent = () => {
     }
 
     if (email && password) {
-        console.log(email, password)
     }
+
+    const data = {
+      email:email,
+      password:password,
+     }
+     console.log(data)
 }
 
   return (
@@ -63,9 +68,8 @@ export const LoginComponent = () => {
             <Stack gap={0.5}>
               <Typography>Имэйл </Typography>
               <TextField
-       
-              onChange={e => setEmail(e.target.value)}
-              required
+                onChange={e => setEmail(e.target.value)}
+                 required
                 type="email"
                 id="outlined-basic"
                 placeholder="И-мэйл хаягаа оруулна уу"
@@ -81,10 +85,9 @@ export const LoginComponent = () => {
                 variant="outlined"
               >
                 <OutlinedInput
-                  label="Password"
                   onChange={e => setPassword(e.target.value)}
                   required
-                  id="outlined-adornment-password"
+                 
                   type={showPassword ? "password" : "text"}
                   endAdornment={
                     <IconButton

@@ -1,3 +1,4 @@
+import React, {useState} from "react";
 import { Stack, TextField, Typography } from "@mui/material";
 
 export const StepOne = ({
@@ -7,10 +8,30 @@ export const StepOne = ({
   setProgress: (_value: number) => void;
   setGetId: (_value: string) => void;
 }) => {
+
+  const [email, setEmail] = useState("")
+   const [emailError, setEmailError] = useState(false)
   setProgress(0)
   setGetId("")
+
+  const handleSubmit = (event:any) => {
+    event.preventDefault()
+      setEmailError(false)
+    if (email == '') {
+        setEmailError(true)
+    }
+
+ const data = {
+  email:email
+ }
+   console.log(data)
+}
+
   return (
     <Stack>
+     <React.Fragment>
+        <form autoComplete="off" onSubmit={handleSubmit}>
+
       <Stack
         width={"448px"}
         padding={4}
@@ -26,6 +47,8 @@ export const StepOne = ({
         <Stack gap={"4px"}>
           <Typography>Имэйл</Typography>
           <TextField
+          onChange={e => setEmail(e.target.value)}
+     
             id="outlined-basic"
             placeholder="И-мэйл хаягаа оруулна уу"
             variant="outlined"
@@ -33,6 +56,7 @@ export const StepOne = ({
           />
         </Stack>
         <TextField
+        
           id="outlined-basic"
           variant="outlined"
           sx={{ backgroundColor: "#ECEDF0" }}
@@ -41,6 +65,8 @@ export const StepOne = ({
           name="submit"
         />
       </Stack>
+      </form>
+      </React.Fragment>
     </Stack>
   );
 };

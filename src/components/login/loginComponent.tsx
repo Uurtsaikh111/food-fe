@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import React, {useState}  from "react";
+import {  useRouter } from "next/router";
 
 
 export const LoginComponent = () => {
@@ -24,8 +25,8 @@ export const LoginComponent = () => {
   ) => {
     event.preventDefault();
   };
-
-  const handleSubmit = (event:any) => {
+  const router = useRouter();
+  const handleSubmit = async (event:any) => {
     event.preventDefault()
 
     setEmailError(false)
@@ -46,6 +47,23 @@ export const LoginComponent = () => {
       password:password,
      }
      console.log(data)
+
+     const res = await fetch("http://localhost:4000/api/login", {
+      body: JSON.stringify(data),
+      method: "POST",
+      mode: "cors",
+      headers: {
+        Accept: "application.json",
+        "Content-Type": "application/json",
+      },
+    });
+    const datas = await res.json();
+    console.log(res)
+    if (datas.token) {
+      localStorage.setItem("userToken", datas.token);
+      router.push("/");
+    }
+
 }
 
   return (

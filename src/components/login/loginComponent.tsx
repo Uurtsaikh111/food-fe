@@ -11,8 +11,6 @@ import {
 import Link from "next/link";
 import React, {useState}  from "react";
 import {  useRouter } from "next/router";
-
-
 export const LoginComponent = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -28,8 +26,7 @@ export const LoginComponent = () => {
   const router = useRouter();
   const handleSubmit = async (event:any) => {
     event.preventDefault()
-
-    setEmailError(false)
+     setEmailError(false)
     setPasswordError(false)
 
     if (email == '') {
@@ -38,7 +35,6 @@ export const LoginComponent = () => {
     if (password == '') {
         setPasswordError(true)
     }
-
     if (email && password) {
     }
 
@@ -47,7 +43,6 @@ export const LoginComponent = () => {
       password:password,
      }
      console.log(data)
-
      const res = await fetch("http://localhost:4000/api/login", {
       body: JSON.stringify(data),
       method: "POST",
@@ -58,13 +53,12 @@ export const LoginComponent = () => {
       },
     });
     const datas = await res.json();
-    console.log(res)
     if (datas.token) {
       localStorage.setItem("userToken", datas.token);
       router.push("/");
     }
 
-}
+};
 
   return (
     <Stack>
@@ -105,8 +99,7 @@ export const LoginComponent = () => {
                 <OutlinedInput
                   onChange={e => setPassword(e.target.value)}
                   required
-                 
-                  type={showPassword ? "password" : "text"}
+                 type={showPassword ? "password" : "text"}
                   endAdornment={
                     <IconButton
                       onClick={handleClickShowPassword}

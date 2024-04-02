@@ -1,7 +1,7 @@
 
 import React, {useState} from "react";
 import Checkbox from '@mui/material/Checkbox';
-
+import {  useRouter } from "next/router";
 import { Button, FormControl, IconButton, OutlinedInput, Stack, TextField, Typography } from "@mui/material";
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -21,7 +21,8 @@ const Home = () => {
 const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
   };
-  const handleSubmit = (event:any) => {
+  const router = useRouter();
+  const handleSubmit = async (event:React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     setEmailError(false)
@@ -42,18 +43,35 @@ const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => 
     setPasswordError(true)
 }
 
-    if (email && password && name && address ) {
-      
+    if (email && password && name  ) {
+    }
       const data = {
+        firstName:name,
+        lastName:password,
         email:email,
-        password:password,
-        name:name,
-        address:address,
+       age:10
+      
+        //address:address,
        }
        console.log(data)
-    }
+ 
+    const res = await fetch("http://localhost:4000/api/register", {
+      body: JSON.stringify(data),
+      method: "POST",
+      mode: "cors",
+      headers: {
+        Accept: "application.json",
+        "Content-Type": "application/json",
+      },
+    });
+    const datas = await res.json();
+    if (datas) {
     
-}
+      router.push("/login");
+    } else {
+      alert("something wrong");
+    }
+};
 
   return (
     <>

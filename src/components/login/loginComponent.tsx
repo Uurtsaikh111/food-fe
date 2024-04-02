@@ -24,8 +24,8 @@ export const LoginComponent = () => {
     event.preventDefault();
   };
   const router = useRouter();
-  const handleSubmit = async (event:any) => {
-    event.preventDefault()
+  const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
      setEmailError(false)
     setPasswordError(false)
 
@@ -56,6 +56,8 @@ export const LoginComponent = () => {
     if (datas.token) {
       localStorage.setItem("userToken", datas.token);
       router.push("/");
+    } else {
+      alert("something wrong");
     }
 
 };

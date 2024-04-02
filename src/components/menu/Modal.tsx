@@ -1,6 +1,6 @@
 import {  Box, Button, CardMedia, Modal, Stack, Typography } from "@mui/material"
 import { CloseButton } from "../Images";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 interface dataType {
     id: number;
@@ -23,7 +23,15 @@ interface dataType {
   };
 
 export const Modals=({ data ,handleClose, open}: { data: dataType ,  handleClose: Dispatch<SetStateAction<boolean >>, open:boolean})=>{
-    return <Stack>
+     const [count , setCount]= useState(1)
+     const handleIncrease = () => {
+      setCount(count + 1);
+    };
+  
+    const handleDecrease = () => {
+      if(1<count){setCount(count - 1)}
+    };
+     return <Stack>
         <Modal
           open={open}
           onClose={handleClose}
@@ -68,8 +76,7 @@ export const Modals=({ data ,handleClose, open}: { data: dataType ,  handleClose
                     borderRadius={1}
                     bgcolor={"#F6F6F6"}
                     gap={1}
-        
-                  >
+        >
                     {data.ingredients.map((a, id) => {
                       return (
                         <Typography key={id} color={"#767676"}>
@@ -86,6 +93,7 @@ export const Modals=({ data ,handleClose, open}: { data: dataType ,  handleClose
                 </Typography>
                 <Stack direction={"row"} gap={"20px"}>
                   <Button
+                   onClick={handleDecrease}
                     sx={{
                       borderRadius: "10px",
                       backgroundColor: "#18BA51",
@@ -102,9 +110,10 @@ export const Modals=({ data ,handleClose, open}: { data: dataType ,  handleClose
                       textAlign: "center",
                     }}
                   >
-                    1
+                    {count}
                   </Typography>
                   <Button
+                  onClick={handleIncrease}
                     sx={{
                       borderRadius: "10px",
                       backgroundColor: "#18BA51",

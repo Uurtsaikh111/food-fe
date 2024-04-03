@@ -14,8 +14,7 @@ import {  useRouter } from "next/router";
 export const LoginComponent = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [emailError, setEmailError] = useState(false)
-  const [passwordError, setPasswordError] = useState(false)
+
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (
@@ -26,19 +25,10 @@ export const LoginComponent = () => {
   const router = useRouter();
   const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-     setEmailError(false)
-    setPasswordError(false)
-
-    if (email == '') {
-        setEmailError(true)
-    }
-    if (password == '') {
-        setPasswordError(true)
-    }
+ 
     if (email && password) {
     }
-
-    const data = {
+const data = {
       email:email,
       password:password,
      }
@@ -61,8 +51,7 @@ export const LoginComponent = () => {
     }
 
 };
-
-  return (
+return (
     <Stack>
 
         <React.Fragment>

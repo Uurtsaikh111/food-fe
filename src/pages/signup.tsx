@@ -1,4 +1,3 @@
-
 import React, {useState} from "react";
 import Checkbox from '@mui/material/Checkbox';
 import {  useRouter } from "next/router";
@@ -10,13 +9,7 @@ const Home = () => {
   const [password, setPassword] = useState("")
   const [address, setAddress] = useState("")
   const [name, setName] = useState("")
-  const [emailError, setEmailError] = useState(false)
-  const [passwordError, setPasswordError] = useState(false)
-  const [nameError, setNameError] = useState(false)
-  const [addressError, setAddressError] = useState(false)
-
-
-  const [showPassword, setShowPassword] = React.useState(false);
+ const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -24,41 +17,19 @@ const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => 
   const router = useRouter();
   const handleSubmit = async (event:React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-
-    setEmailError(false)
-    setPasswordError(false)
-    setNameError(false)
-    setAddressError(false)
-
-    if (email == '') {
-        setEmailError(true)
-    }
-    if (password == '') {
-        setPasswordError(true)
-    }
-    if (address == '') {
-      setPasswordError(true)
-  }
-  if (name == '') {
-    setPasswordError(true)
-}
-
-    if (email && password && name  ) {
-    }
+// if (email && password && name  ) {
+//     }
       const data = {
-        firstName:name,
-        lastName:password,
+        name:name,
         email:email,
-       age:10
-      
-        //address:address,
-       }
+        password:password,   
+        address:address,
+    
+}
        console.log(data)
- 
-    const res = await fetch("http://localhost:4000/api/register", {
+ const res = await fetch("http://localhost:4000/api/register", {
       body: JSON.stringify(data),
       method: "POST",
-      mode: "cors",
       headers: {
         Accept: "application.json",
         "Content-Type": "application/json",
@@ -72,8 +43,7 @@ const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => 
       alert("something wrong");
     }
 };
-
-  return (
+return (
     <>
 
         <Stack>

@@ -1,1 +1,1 @@
-export * from "./loginComponent"
+export * from "./LoginComponents"

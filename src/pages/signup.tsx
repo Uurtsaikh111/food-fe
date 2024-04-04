@@ -36,11 +36,12 @@ const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => 
       },
     });
     const datas = await res.json();
-    if (datas) {
+    console.log(datas)
+    if (datas.user) {
     
       router.push("/login");
     } else {
-      alert("something wrong");
+      alert("wrong email");
     }
 };
 return (

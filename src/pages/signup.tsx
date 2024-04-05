@@ -17,17 +17,14 @@ const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => 
   const router = useRouter();
   const handleSubmit = async (event:React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-// if (email && password && name  ) {
-//     }
       const data = {
         name:name,
         email:email,
-        password:password,   
         address:address,
-    
-}
-       console.log(data)
- const res = await fetch("http://localhost:4000/api/register", {
+        password:password,   
+  }
+       
+       const res = await fetch("http://localhost:4000/api/register", {
       body: JSON.stringify(data),
       method: "POST",
       headers: {
@@ -153,8 +150,7 @@ type="submit"
          </form>
          </React.Fragment>
         </Stack>
-    
-    </>
+   </>
   );
 };
 export default Home;

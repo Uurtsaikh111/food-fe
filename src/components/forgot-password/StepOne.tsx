@@ -1,31 +1,39 @@
-import React, {useState} from "react";
+import React, {Dispatch, SetStateAction, useState} from "react";
 import { Stack, TextField, Typography } from "@mui/material";
-
 export const StepOne = ({
   setProgress,
-  setGetId,
+  setGetId
 }: {
   setProgress: (_value: number) => void;
-  setGetId: (_value: string) => void;
+  setGetId:Dispatch<SetStateAction<string>>;
 }) => {
-
-  const [email, setEmail] = useState("")
-   const [emailError, setEmailError] = useState(false)
-  setProgress(0)
-  setGetId("")
-
-  const handleSubmit = (event:any) => {
+const [email, setEmail] = useState("")
+  const handleSubmit = async (event:any) => {
     event.preventDefault()
-      setEmailError(false)
-    if (email == '') {
-        setEmailError(true)
-    }
-
- const data = {
+   
+const data = {
   email:email
  }
-   console.log(data)
-}
+ const res = await fetch("http://localhost:4000/api/forgotPass", {
+  body: JSON.stringify(data),
+  method: "PUT",
+  headers: {
+    Accept: "application.json",
+    "Content-Type": "application/json",
+  },
+});
+const datas = await res.json();
+    console.log("dataa",datas)
+    if (datas.matchedCount) {
+      setProgress(1)
+      setGetId(data.email)
+      console.log(data.email)
+    } else {
+        alert("wrong email");
+      }
+    
+    
+};
 
   return (
     <Stack>

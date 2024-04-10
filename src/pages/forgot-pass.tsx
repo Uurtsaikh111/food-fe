@@ -12,10 +12,10 @@ const Home = () => {
         <StepOne setProgress={setProgress} setGetId={setGetId} />
       )}
        {progress == 1 && (
-        <StepTwo setProgress={setProgress}/>
+        <StepTwo setProgress={setProgress} getId={getId}/>
       )}
       {progress == 2 && (
-        <StepThree setProgress={setProgress} getId={getId} />
+        <StepThree getId={getId} />
       )}
   </Stack>
     );

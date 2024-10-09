@@ -55,7 +55,11 @@ const Home = () => {
         {filterCategory.map(category => (
           <Button 
             key={category._id}
-            sx={{ width: "280px", px: "16px", py: "8px", borderRadius: "8px", color: "black", border: "1px solid grey" }} 
+            sx={{ width: "280px", px: "16px", py: "8px", borderRadius: "8px",   color: selectedCategory === category._id ? "white" : "black", 
+              backgroundColor: selectedCategory === category._id ? "green" : "transparent", 
+              border: "1px solid grey", '&:hover': {
+      backgroundColor: selectedCategory === category._id ? "#4CAF50" : "#e0e0e0",
+    }  }} 
             onClick={() => setSelectedCategory(category._id)}
           >
             {category.name}

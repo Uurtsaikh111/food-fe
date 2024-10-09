@@ -84,9 +84,7 @@ export const Modals=({ data ,handleClose, open}: { data: dataFoodType ,  handleC
                         <Typography key={id} color={"#767676"}>
                           {a}
                         </Typography>
-                         
                       );
-                
                     })}
                   </Stack>
                 </Stack>
@@ -100,6 +98,9 @@ export const Modals=({ data ,handleClose, open}: { data: dataFoodType ,  handleC
                       borderRadius: "10px",
                       backgroundColor: "#18BA51",
                       color: "white",
+                      ":hover":{
+                        backgroundColor: "green"
+                      }
                     }}
                   >
                     -
@@ -120,10 +121,21 @@ export const Modals=({ data ,handleClose, open}: { data: dataFoodType ,  handleC
                       borderRadius: "10px",
                       backgroundColor: "#18BA51",
                       color: "white",
+                      ":hover":{
+                        backgroundColor: "green"
+                      }
                     }}
                   >
                     +
                   </Button>
+                </Stack>
+                <Stack direction={"row"} gap={1}> 
+                <Typography fontSize={"18px"} fontWeight={"600"}>
+                Нийт дүн:
+                </Typography>
+                <Typography fontSize={"18px"} fontWeight={"600"}>
+                {data.price*count}₮
+                </Typography>
                 </Stack>
                 <Button
                   sx={{
@@ -132,6 +144,9 @@ export const Modals=({ data ,handleClose, open}: { data: dataFoodType ,  handleC
                     color: "white",
                     px: "16px",
                     py: "8px",
+                    ":hover":{
+                      backgroundColor: "green"
+                    }
                   }}
                 >
                   Сагслах

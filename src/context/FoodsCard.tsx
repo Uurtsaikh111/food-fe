@@ -1,57 +1,56 @@
 import {
-    createContext,
-    Dispatch,
-    SetStateAction,
-    useEffect,
-    useState,
-  } from "react";
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useState,
+} from "react";
 
-  interface shopCardType {
-    id: number;
-    title: string;
-    image: string;
-    ingeredient: string[];
-    category: string;
-    price: number;
-    count: number;
-  }
-
-  const shopFood: shopCardType[] = [];
-  interface categoryType {
-    categoryId: string;
-    categoryName: string;
-  }
-  const category: categoryType[] = [];
-interface CustomePropsContext {
-  foodList: shopCardType[];
-  setFoodList: Dispatch<SetStateAction<shopCardType[]>>;
-  foodData: shopCardType[];
-  setFoodData: Dispatch<SetStateAction<shopCardType[]>>;
-  categoryData: categoryType[];
-  setCategoryData: Dispatch<SetStateAction<categoryType[]>>;
+interface ShopCardType {
+  id: number;
+  title: string;
+  image: string;
+  ingredient: string[]; // Fixed spelling here
+  category: string;
+  price: number;
+  count: number;
 }
-interface customContextProvideProps {
+
+const initialShopFood: ShopCardType[] = []; // Provide initial data if available
+const initialCategories: CategoryType[] = []; // Provide initial data if available
+
+interface CategoryType {
+  categoryId: string;
+  categoryName: string;
+}
+
+interface CustomPropsContext {
+  foodList: ShopCardType[];
+  setFoodList: Dispatch<SetStateAction<ShopCardType[]>>;
+  foodData: ShopCardType[];
+  setFoodData: Dispatch<SetStateAction<ShopCardType[]>>;
+  categoryData: CategoryType[];
+  setCategoryData: Dispatch<SetStateAction<CategoryType[]>>;
+}
+
+interface CustomContextProviderProps {
   children: React.ReactNode;
 }
-const CustomContext = createContext<CustomePropsContext>({
-  foodList: shopFood,
+
+const CustomContext = createContext<CustomPropsContext>({
+  foodList: initialShopFood,
   setFoodList: () => {},
-  foodData: shopFood,
+  foodData: initialShopFood,
   setFoodData: () => {},
-  categoryData: category,
+  categoryData: initialCategories,
   setCategoryData: () => {},
 });
 
-const CustomContextProvider = ({ children }: customContextProvideProps) => {
-  const [foodList, setFoodList] = useState(shopFood);
-  const [foodData, setFoodData] = useState(shopFood);
-  const [categoryData, setCategoryData] = useState(category);
-  useEffect(() => {
-    setFoodList(foodList);
-    setFoodData(foodData);
-    setCategoryData(categoryData);
-    console.log(categoryData);
-  }, [categoryData]);
+const CustomContextProvider = ({ children }: CustomContextProviderProps) => {
+  const [foodList, setFoodList] = useState<ShopCardType[]>(initialShopFood);
+  const [foodData, setFoodData] = useState<ShopCardType[]>(initialShopFood);
+  const [categoryData, setCategoryData] = useState<CategoryType[]>(initialCategories);
+
   return (
     <CustomContext.Provider
       value={{
@@ -67,4 +66,8 @@ const CustomContextProvider = ({ children }: customContextProvideProps) => {
     </CustomContext.Provider>
   );
 };
-export { CustomContext, CustomContextProvider };
+
+// Optional: Create a custom hook for easier context consumption
+const useCustomContext = () => useContext(CustomContext);
+
+export { CustomContext, CustomContextProvider, useCustomContext };

@@ -8,35 +8,37 @@ import {
 import React from "react";
 
 import { Modals } from ".";
-interface dataType {
-  id: number;
-  category: string;
-  title: string;
+interface dataFoodType {
+  _id: string;
+  name: string;
+  categoryId: {
+    name: string;
+    _id: string;
+  };
   image: string;
   price: number;
   discount: number;
   ingredients: string[];
-  stock: number;
 }
 
-export const Card = ({ data }: { data: dataType }) => {
+export const Card = ({ data }: { data: dataFoodType }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
-    <Stack>
+    <Stack   width={270}>
       <Stack onClick={handleOpen}>
         <CardMedia
           component={"img"}
           src={data.image}
-          width={282}
-          height={186}
+          width={270}
+          height={185}
           alt=""
         />
         <Stack px={1.5}>
           <Typography fontSize={"18px"} fontWeight={"600"}>
-            {data.title}
+            {data.name}
           </Typography>
           <Stack direction={"row"} gap={1}>
             <Typography fontSize={"18px"} fontWeight={"600"} color={"#18BA51"}>

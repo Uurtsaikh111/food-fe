@@ -2,16 +2,18 @@ import {  Box, Button, CardMedia, Modal, Stack, Typography } from "@mui/material
 import { CloseButton } from "../Images";
 import { Dispatch, SetStateAction, useState } from "react";
 
-interface dataType {
-    id: number;
-    category: string;
-    title: string;
-    image: string;
-    price: number;
-    discount: number;
-    ingredients: string[];
-    stock: number;
-  }
+interface dataFoodType {
+  _id: string;
+  name: string;
+  categoryId: {
+    name: string;
+    _id: string;
+  };
+  image: string;
+  price: number;
+  discount: number;
+  ingredients: string[];
+}
   const style = {
     position: "absolute" as "absolute",
     top: "50%",
@@ -22,7 +24,7 @@ interface dataType {
     p: 4,
   };
 
-export const Modals=({ data ,handleClose, open}: { data: dataType ,  handleClose: Dispatch<SetStateAction<boolean >>, open:boolean})=>{
+export const Modals=({ data ,handleClose, open}: { data: dataFoodType ,  handleClose: Dispatch<SetStateAction<boolean >>, open:boolean})=>{
      const [count , setCount]= useState(1)
      const handleIncrease = () => {
       setCount(count + 1);
@@ -56,7 +58,7 @@ export const Modals=({ data ,handleClose, open}: { data: dataType ,  handleClose
               <Stack gap={4}>
                 <Stack>
                   <Typography fontSize={"28px"} fontWeight={700}>
-                    {data.title}
+                    {data.name}
                   </Typography>
                   <Typography
                     fontSize={"18px"}

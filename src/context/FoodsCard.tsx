@@ -7,12 +7,16 @@ import {
 } from "react";
 
 interface ShopCardType {
-  id: number;
-  title: string;
+  _id: string;
+  name: string;
+  categoryId: {
+      name: string;
+      _id: string;
+  };
   image: string;
-  ingredient: string[]; // Fixed spelling here
-  category: string;
   price: number;
+  discount: number;
+  ingredients: string[];
   count: number;
 }
 

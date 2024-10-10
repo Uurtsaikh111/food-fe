@@ -6,8 +6,10 @@ import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { Container, Stack } from "@mui/material";
-import { Basket, Logo, Profile } from "../Images";
+import { Logo, Profile } from "../Images";
+import BasketRender from "../BasketRender";
 import Link from "next/link";
+import BasketIconInfo from "../BasketIconInfo";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -36,7 +38,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   width: "260px",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
     [theme.breakpoints.up("sm")]: {
@@ -48,7 +49,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 const Header = () => {
-
   return (
     <Container >
       <Stack
@@ -95,7 +95,7 @@ const Header = () => {
             </Box>
             <Box
               sx={{
-                gap: "8px",
+                gap: "20px",
                 display: "flex",
                 color: "black",
               }}
@@ -112,20 +112,20 @@ const Header = () => {
               <Box
                 sx={{
                   display: "flex",
-                  gap: "8px",
-                  px: "16px",
-                  py: "8px",
+                  gap: "4px",
                 }}
               >
-                <Box>
-                  <Basket />
-                </Box>
-                <Typography>Сагс</Typography>
+                <BasketIconInfo/>
+                <Box
+                  sx={{marginTop:"10px"
+
+                  }}    
+                ><BasketRender/></Box>
               </Box>
               <Box
                 sx={{
                   display: "flex",
-                  gap: "8px",
+                  gap: "4px",
                   py: "8px",
                 }}
               >
@@ -134,7 +134,7 @@ const Header = () => {
                 </Box>
                 <Link
                   href={"login"}
-                  style={{ textDecoration: "none" }}
+                  style={{ textDecoration: "none"  }}
                   
                 >
                   <Typography color={"#000000"}>Нэвтрэх</Typography>

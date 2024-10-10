@@ -32,7 +32,9 @@ const datas = data.slice(0,4)
                         fontWeight={"600"}
                         color={"#18BA51"}
                       >
-                        {a.price}₮
+                           {a.discount > 0 
+                       ? (a.price - (a.discount * a.price) / 100) 
+                       : a.price}₮
                       </Typography>
                      
                     </Stack>

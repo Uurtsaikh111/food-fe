@@ -33,7 +33,7 @@ export const Footer = () => {
               Food Delivery
             </Stack>
           </Stack>
-          <Stack width={"100%"} direction={"row"} justifyContent={"space-between"} sx={{color:"white"}}>
+          <Stack width={"100%"} direction={{sm:"column",lg:"row"}} justifyContent={{ sm: 'center', lg: 'space-between' }} alignItems={{sm:'center'}} sx={{color:"white"}}>
             <Link href="/" color={"#FFF"}>Нүүр</Link>
             <Link color={"#FFF"}>Холбоо барих</Link>
             <Link href="/menu" color={"#FFF"}>Хоолны цэс</Link>

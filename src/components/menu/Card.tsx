@@ -27,8 +27,8 @@ export const Card = ({ data }: { data: dataFoodType }) => {
   const handleClose = () => setOpen(false);
 
   return (
-    <Stack   width={270}>
-      <Stack onClick={handleOpen} position={"relative"} >
+    <Stack width={{sm:300,md:230, lg:270}} alignItems={{sm:'center',lg:'normal'}} >
+      <Stack onClick={handleOpen} position={"relative"} > 
         <CardMedia
           component={"img"}
           src={data.image}
@@ -52,7 +52,7 @@ export const Card = ({ data }: { data: dataFoodType }) => {
         </Typography>
          ) : null}
 
-        <Stack px={1.5}>
+        <Stack px={1.5}  alignItems={{sm:'center',lg:'normal'}}>
           <Typography fontSize={"18px"} fontWeight={"600"}>
             {data.name}
           </Typography>

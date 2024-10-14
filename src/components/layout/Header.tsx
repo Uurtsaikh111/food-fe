@@ -54,10 +54,7 @@ const Header = () => {
       <Stack
         maxWidth={"lg"}
         height={"57px"}
-        sx={{
-          
-          py: "8px",
-        }}
+        sx={{ py: { sm: "2px", lg: "8px" } }}
       >
         <AppBar
           position="static"
@@ -67,17 +64,18 @@ const Header = () => {
             sx={{
               display: "flex",
               justifyContent: "space-between",
+             
             }}
           >
-            <Box sx={{ display: "flex", gap: "24px" }}>
+            <Box sx={{ display: "flex", gap: {xs: '8px', md: '12px', lg:'24px'}}}>
               <Box>
                 <Logo color={"black"} />
               </Box>
               <Box
                 sx={{
-                  display: "flex",
-                  gap: "24px",
-                  fontSize: "16px",
+                  display: 'flex',
+                  gap: {xs: '8px', md: '12px', lg:'24px'},
+                  fontSize: {xs: '0.5rem', md: '10px', lg:'16px'},
                   py: "8px",
                   color: "black",
                 }}
@@ -89,8 +87,8 @@ const Header = () => {
                   style={{ textDecoration: "none" }}
                 ><Typography color={"#000000"}>ХООЛНЫ ЦЭС</Typography></Link>
                 <Link  href={"/delivery-zone"}
-                  style={{ textDecoration: "none" }}
-                ><Typography color={"#000000"}>ХҮРГЭЛТИЙН БҮС</Typography></Link>
+                  style={{ textDecoration: "none" , }}
+                ><Typography sx={{ display: { xs: 'none', md: 'none', lg:'flex'} }} color={"#000000"}>ХҮРГЭЛТИЙН БҮС</Typography></Link>
               </Box>
             </Box>
             <Box
@@ -100,7 +98,7 @@ const Header = () => {
                 color: "black",
               }}
             >
-              <Search sx={{ border: 1 }}>
+              <Search sx={{ border: 1 ,   display: { xs: 'none', md: 'none', lg:'flex'} }}>
                 <SearchIconWrapper>
                   <SearchIcon />
                 </SearchIconWrapper>
@@ -124,7 +122,7 @@ const Header = () => {
               </Box>
               <Box
                 sx={{
-                  display: "flex",
+                  display: { xs: 'none', md: 'flex', lg:'flex' },
                   gap: "4px",
                   py: "8px",
                 }}

@@ -67,7 +67,7 @@ const Home = () => {
         ))}
       </Stack>
 
-      <Stack direction={"row"} gap={3} marginBottom={"86px"} flexWrap={"wrap"}>
+      <Stack direction={"row"} gap={3} marginBottom={"86px"} flexWrap={"wrap"} justifyContent={{sm:'center', lg:'normal'}}>
         {filterFoods.map(food => (
           <Card key={food._id} data={food} />
         ))}

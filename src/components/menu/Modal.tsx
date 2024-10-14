@@ -3,21 +3,17 @@ import { CloseButton } from "../Images";
 import { Dispatch, SetStateAction, useState } from "react";
 import { FoodDataType } from "@/utils/Datatype/FoodDataType";
 import { useCustomContext } from "@/context/FoodsCard";
-
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 981,
+  width: {sm:'90%', md:'90%',lg:981},
   bgcolor: "background.paper",
-  p: 4,
+  p: {sm:2,lg:4},
 };
-
 export const Modals = ({
-  data,
-  handleClose,
-  open,
+  data,handleClose,open,
 }: {
   data: FoodDataType;
   handleClose: Dispatch<SetStateAction<boolean>>;
@@ -44,22 +40,27 @@ export const Modals = ({
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} display={"flex"} gap={"33px"}>
-          <Stack width={"500px"}>
+        <Box sx={style} display={{sm:'column',md:'flex',lg:'flex'}} gap={{sm:'10px',lg:'33px'}}>
+          <Stack width={{sm:'100%', md:'90%',lg:'500px'}} sx={{alignContent:'center', display:'flex', justifyContent:'center'}}>
             <CardMedia
               component={"img"}
               src={data.image}
-              width={200}
-              height={500}
+              sx={{ 
+                height: { sm: '100%', md: '100%', lg:'85%' },
+                width: '100%', 
+                objectFit: 'cover', 
+              }}
             />
           </Stack>
           <Stack>
-            <Stack alignItems={"end"} marginBottom={4}>
-              <Stack onClick={() => handleClose(false)}>
-                <CloseButton />
-              </Stack>
-            </Stack>
-            <Stack gap={4}>
+          <Stack 
+               alignItems="flex-end" marginBottom={4} 
+              onClick={() => handleClose(false)} 
+              sx={{ display: { sm: 'none',md:'flex' , lg: 'flex' } }} 
+          >
+           <CloseButton />
+          </Stack>
+            <Stack gap={{sm:2,md:4, lg:4}}>
               <Stack>
                 <Typography fontSize={"28px"} fontWeight={700}>
                   {data.name}
@@ -106,8 +107,7 @@ export const Modals = ({
                   -
                 </Button>
                 <Typography
-                  sx={{
-                    px: "30px",
+                  sx={{px: "30px",
                     py: "8px",
                     width: "254px",
                     textAlign: "center",

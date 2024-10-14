@@ -24,20 +24,20 @@ const BasketRender: React.FC = () => {
     }, 5000); 
   };
   const DrawerList = (
-    <Box sx={{ width: 450, px: "20px", py: '20px' }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box sx={{ width: { sm: 350, md: 450, lg:450, }, px: "20px", py: '20px' }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
         {foodList.length > 0 ? (
           foodList.map((data, index) => (
             <Box key={index} justifyContent={'space-between'} display={'flex'} mb={2} border={'1px grey solid'} borderRadius={2} p={1}>
-              <Box width={160}>
+              <Box sx={{ width: {xs: '60%', md: '100%', lg:'160px'}}}>
                 <CardMedia
                   component={"img"}
                   src={data.image}
                   height={110}
                 />
               </Box>
-              <Stack width={"172px"}>
-                <Typography fontWeight={600} display={'flex'} justifyContent={'start'}>
+              <Stack sx={{ width: { sm:'36%', md: '172px', lg:'172px', }}}>
+                <Typography fontWeight={600} display={'flex'} justifyContent={{ sm:'end',md:'start' ,lg:'start'}} >
                   {data.name}
                 </Typography>
                 <Typography fontWeight={500} display={'flex'} alignItems={'center'} justifyContent={"end"}>
@@ -63,7 +63,7 @@ const BasketRender: React.FC = () => {
                   borderRadius: "4px",
                   backgroundColor: "#18BA51",
                   color: "white",
-                  px: "166px",
+                  px: { sm:'37.5%',md:'100%' , lg:"166px"},
                   py: "8px",
                   ":hover": {
                     backgroundColor: "green"

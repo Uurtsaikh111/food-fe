@@ -8,7 +8,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: {sm:'90%', md:'90%',lg:981},
+  width: {sm:'80%', md:'90%',lg:981},
   bgcolor: "background.paper",
   p: {sm:2,lg:4},
 };
@@ -46,7 +46,7 @@ export const Modals = ({
               component={"img"}
               src={data.image}
               sx={{ 
-                height: { sm: '100%', md: '100%', lg:'85%' },
+                height: { sm: '70%', md: '100%', lg:'85%' },
                 width: '100%', 
                 objectFit: 'cover', 
               }}
@@ -60,7 +60,7 @@ export const Modals = ({
           >
            <CloseButton />
           </Stack>
-            <Stack gap={{sm:2,md:4, lg:4}}>
+            <Stack gap={{sm:1,md:4, lg:4}}>
               <Stack>
                 <Typography fontSize={"28px"} fontWeight={700}>
                   {data.name}

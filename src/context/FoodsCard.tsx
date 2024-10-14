@@ -20,8 +20,8 @@ interface ShopCardType {
   count: number;
 }
 
-const initialShopFood: ShopCardType[] = []; // Provide initial data if available
-const initialCategories: CategoryType[] = []; // Provide initial data if available
+const initialShopFood: ShopCardType[] = []; 
+const initialCategories: CategoryType[] = []; 
 
 interface CategoryType {
   categoryId: string;

@@ -68,14 +68,14 @@ const Information = () => {
                         </Box>
                         <IconButton
                             onClick={handlePrev}
-                            sx={{ position: 'absolute', top: '40%', left: 10 }}
+                            sx={{ position: 'absolute', top: '40%', left: 1 }}
                             disabled={sliding}
                         >
                             <ChevronLeft />
                         </IconButton>
                         <IconButton
                             onClick={handleNext}
-                            sx={{ position: 'absolute', top: '40%', right: 10 }}
+                            sx={{ position: 'absolute', top: '40%', right: 1 }}
                             disabled={sliding}
                         >
                             <ChevronRight />

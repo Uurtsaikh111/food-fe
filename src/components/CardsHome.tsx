@@ -1,14 +1,15 @@
-import { CardMedia, Stack, Typography } from "@mui/material";
+/* eslint-disable */
+import { CardMedia, Stack, Theme, Typography, useMediaQuery } from "@mui/material";
 import { Star } from "./Images/icons/Star";
 import Link from "next/link";
 import Cards from "./Cards";
 import { useEffect, useState } from "react";
+import SwipeableCarousel from "./Carousel";
 
 interface dataType {
   _id: string;
   name: string;
 }
-
 interface dataFoodType {
   _id: string;
   name: string;
@@ -21,8 +22,8 @@ interface dataFoodType {
   discount: number;
   ingredients: string[];
 }
-
 const CardsHome = () => {
+  const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
   const [data, setData] = useState<dataType[] | null>(null);
   const [foodData, setFoodData] = useState<dataFoodType[] | null>(null);
 
@@ -57,7 +58,7 @@ const CardsHome = () => {
   })
   
   return (
-    <Stack gap={"60px"} marginBottom={10}>
+    <Stack gap={{lg:"60px"}} marginBottom={5}>
       <Stack >
         <Stack direction={"row"} justifyContent={"space-between"} alignItems={"center"}>
           <Stack direction={"row"} py={2}>
@@ -72,7 +73,7 @@ const CardsHome = () => {
             </Typography>
           </Link>
         </Stack>
-        <Stack direction={"row"} gap={2}>
+        {isMobile ? (<SwipeableCarousel items={saleFoods}/>) : (<Stack direction={"row"} gap={2}>
           {saleFoods.map(a => (
             <Stack key={a._id} gap={"14px"}  >
               <Stack position={"relative"} width={270}>
@@ -107,8 +108,29 @@ const CardsHome = () => {
               </Stack>
             </Stack>
           ))}
-        </Stack>
+        </Stack>)}
       </Stack>
+      {isMobile ? (<Stack gap={1}>
+        {filters.map((b, id) => (
+          <Stack key={id} gap={1}>
+            <Stack direction={"row"} justifyContent={"space-between"} alignItems={"center"}>
+              <Stack direction={"row"} py={2}>
+                <Star />
+                <Typography fontSize={"22px"} fontWeight={"700"}>
+                  {categories[id]}
+                </Typography>
+              </Stack>
+              <Link href={"menu"} style={{ textDecoration: "none" }}>
+                <Typography fontSize={"14px"} color={"#18BA51"}>
+                  Бүгдийг харах
+                </Typography>
+              </Link>
+            </Stack>
+            <SwipeableCarousel items={b}/>
+          </Stack>
+        ))}
+      </Stack>
+      ) : (
       <Stack gap={3}>
         {filters.map((b, id) => (
           <Stack key={id} gap={3}>
@@ -128,9 +150,8 @@ const CardsHome = () => {
             <Cards data={b} />
           </Stack>
         ))}
-      </Stack>
+      </Stack>)}
     </Stack>
   );
 };
-
 export default CardsHome;

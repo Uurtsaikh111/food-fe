@@ -7,11 +7,11 @@ const Reclam = () => {
     <Stack
     bgcolor={theme.palette.primary.main}
     sx={{ backgroundImage: "url(/bgImage.svg)" }}
-    marginBottom={"122px"}
+    marginBottom={{sm:"40px",  md:"102px",  lg:"122px"}}
   >
     <Container maxWidth={"lg"}>
       <Stack
-        height={"788px"}
+        height={{lg:"788px"}}
         direction={"row"}
         alignItems={"center"}
         position={"relative"}

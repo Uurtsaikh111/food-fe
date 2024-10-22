@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
+import { CloseButton } from './Images';
 import List from '@mui/material/List';
 import { useCustomContext } from "@/context/FoodsCard";
 import { Button, CardMedia, Stack, Typography } from '@mui/material';
@@ -9,7 +10,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const BasketRender: React.FC = () => {
   const [open, setOpen] = React.useState(false);
-  const { foodList } = useCustomContext();
+  const { foodList , setFoodList} = useCustomContext();
+
+  const removeItem = (id: string) => {
+    setFoodList((prevList) => prevList.filter(food => food._id !== id));
+  };
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -23,12 +28,14 @@ const BasketRender: React.FC = () => {
       window.location.reload(); 
     }, 5000); 
   };
+
+
   const DrawerList = (
     <Box sx={{ width: { sm: 350, md: 450, lg:450, }, px: "20px", py: '20px' }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
         {foodList.length > 0 ? (
           foodList.map((data, index) => (
-            <Box key={index} justifyContent={'space-between'} display={'flex'} mb={2} border={'1px grey solid'} borderRadius={2} p={1}>
+            <Box key={index} justifyContent={'space-between'} display={'flex'} mb={2} border={'1px grey solid'} borderRadius={2} p={1} position={'relative'}>
               <Box sx={{ width: {xs: '60%', md: '100%', lg:'160px'}}}>
                 <CardMedia
                   component={"img"}
@@ -46,7 +53,14 @@ const BasketRender: React.FC = () => {
                 <Typography fontWeight={600} color={'green'} display={'flex'} justifyContent={"end"}>
                   {data.price * data.count} ₮
                 </Typography>
+                <Stack   
+                position={"absolute"}
+                top={2}
+                right={2}    
+        >
+          <Button sx={{ padding: 0, minWidth: 0 }} onClick={() => removeItem(data._id)}><CloseButton/></Button></Stack>
               </Stack>
+              
             </Box>
           ))
         ) : (
